@@ -1,0 +1,31 @@
+Frontend Questions
+
+1.
+  A company needs you to make their website more accessble. What are some of the first things you consider?
+    - Checking for appropriate alt tags on images. These should be present and include a decription of the image.
+    - CHecking for and adding labels on all form inputs.
+    - Using LIghthouse or simliar api to check for color contrast on fonts and background images to ensure theere is a high enough contrast to account for colorblindness.
+    - Incorporate use of sematic html tags to assist screen readers.
+  
+2.
+  What are callbakcs and higher order functions?
+    - Higher order functions are reuasble sets of instructions in a scripting language assigned to a point in memory with a variable. aka a function. The difference between them and a regular function is that the Higher-Order-Funciton accepts another function as one or more of its arguments.
+    you pass in a second function as the parameter to a higherorder function.  
+    - A callback is the function passed into a H.o.f. as an argument.
+    
+3.
+  When are asynchronous methods useful Why are Async/Await, Callbacks, and Promises useful?
+    - Asynchronous methods are handy when you need to write nonblocking code. In other words wehn you have a piece of logic that needs to run independently fromt he main stream of the program.
+    Examples in web development would be for api calls to retreive a dataset or other user input that rely on some type of user triggered event.
+    When you have more than one thing that needs to happen and one of them takes an undefined amount of time.
+   
+    - Async/Await has improvements mad eto the logic and statemachine under the hood to runn faster than promises. Async/Await can be used to write code that reads in a more synchorous fashion.
+    - Callbacks are used typically when you are constructing a piece of logic to be triggered by a particular event or state.  Callbacks are also used while looping through datasets.
+    - Promises can be used to create error boundaries. You can set them up to allow for different instances of an API response in a form of state machine.
+    If successful response do this to the dataset we received
+    if you catch this error display it to the console or append it to the dom with this set of instructions
+    if the response includes this logic follow this third set of logic.
+    finally no matter which response type we received you should follow this logic as well.
+    
+   4. 
+   
