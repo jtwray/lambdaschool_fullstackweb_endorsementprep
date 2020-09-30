@@ -15,11 +15,11 @@ Frontend Questions
     
 3.
   When are asynchronous methods useful Why are Async/Await, Callbacks, and Promises useful?
-    - Asynchronous methods are handy when you need to write nonblocking code. In other words wehn you have a piece of logic that needs to run independently fromt he main stream of the program.
+    - Asynchronous methods are handy when you need to write nonblocking code. In other words when you have a piece of logic that needs to run independently from the main stream of the program.
     Examples in web development would be for api calls to retreive a dataset or other user input that rely on some type of user triggered event.
-    When you have more than one thing that needs to happen and one of them takes an undefined amount of time.
-   
-    - Async/Await has improvements mad eto the logic and statemachine under the hood to runn faster than promises. Async/Await can be used to write code that reads in a more synchorous fashion.
+    When you have more than one thing that needs to happen and one of them takes an undefined amount of time or when you want something to happend on command or sideeffect.
+    When dealing with sideeffects.
+    - Async/Await has improvements made to the logic and statemachine under the hood to runn faster than promises. Async/Await can be used to write code that reads in a more synchorous fashion.
     - Callbacks are used typically when you are constructing a piece of logic to be triggered by a particular event or state.  Callbacks are also used while looping through datasets.
     - Promises can be used to create error boundaries. You can set them up to allow for different instances of an API response in a form of state machine.
     If successful response do this to the dataset we received
@@ -27,5 +27,50 @@ Frontend Questions
     if the response includes this logic follow this third set of logic.
     finally no matter which response type we received you should follow this logic as well.
     
-   4. 
+4. 
+  Changes to state that should affect the rendering of a stateful React component aren't updating the component as expected. What coud be causing this issue>
+      
+  - First is this a class type or function component
+  - Either way I would want to check out the lifecycle methods or the effect hooks/ memoization / callback hooks dependency array.  
+  - You want to check the placement of state in the component tree. Is the state defined high enough to cause a rerender. 
+
+5.
+  When should we use Proptypes in React?
+   - I suggest using proptypes anytime you want to gain type safety. Proptypes allow you to define initial values and avoid an entire species of errors before they happen.
+   - PropTypes are a builtin feature of React.
+   - If using TypeScript you dont want to use proptypes. TypeScript offers that funcitonality already with additional features.
    
+6.
+  A company has a website that currently renders very badly on tablets and mobile devices. You've been tasked to make the site responsive. How will you go about this?
+      -  Do we have a prototype or a design for the mobile and tablet versions of this site?
+      -  Determine which parts of the layout can be resized without degrading the user experience( with input from a UI/UX designer if available.)
+      - incorporate Mediqueries for at least two additional screen sizes. tablets are normally between 600-1000 and less than 500-600 for a large mobile phone.
+      - Mobile view less than 600 px set the navigation to flex column. stack the navitems in a single column with a width of 100%;
+      - you might use a default minimized navbar with a hamburger icon/ x rotation. clicking the icon triggers a slide/fade transition UI for the navigation items.     
+      REMS
+      - set html font-size to 62.5% 
+      - allows for a base-10 (modern counting system) type calculation of pixels with rems 
+      - ie: 4rems = 40px | 1.2rems = 12px | move the decimal once to the right to convert rems to pixels
+      - fonts
+      - spacing alternative if spacing should be relative to container size. (more for bigger screens etc)
+      PX 
+      - min-width/max-width of main containers
+      - width of images/can use for height values(auto is a good default for image height to maintain ratio) 
+      - box modal top and bottom
+      % 
+      - box modal left & right (margin,padding, border) if exact spacig is need on all sizes
+      - container widths 
+      
+7.
+  When should you opt to use a stateless component vs a stateful component in React>
+    - Use Stateful components when you need to gain interact with an API or create some type of sideeffect.
+    - Use stateless components when only dealing with UI presentation and any data can be accessed through props or changed with functions as props
+    I think it is wise to keep state as far down in the tree as possible to avoid unecessary children rerenders.
+    
+8.
+  What are the most common React Lifecycle methods? How do React Hooks relate to these?
+    - componentDidMount is similar to the useeffect hook with an empty dependency array. it Will run after on the first render only.
+    - componentDidUpdate is similar to the useeffect hook with somethin in the dependency array. The component will rerender if the state in the array is updated
+    - componentWillUnmount similar to returning a sideeffect callback from the useeffect hook to destroy the event
+      -- use this to create or destroy a subscription
+ 
